@@ -34,6 +34,12 @@ const JoinRoom = () => {
   It makes form validation easier and will allow us to scale up to more complicated forms much easier. */
   const {control, handleSubmit, formState: {errors}} = useForm();
 
+  //Function to automatically format the room code entry.
+  const formatRoomCode = (value) => {
+    const cleaned = value.replace(/[^A-Z0-9]/gi, '').toUpperCase().slice(0, 8);
+    if (cleaned.length <= 4) return cleaned;
+    return `${cleaned.slice(0, 4)}-${cleaned.slice(4)}`;
+  };
   if (isLoading){
     return (
       <View className="flex-1 justify-center items-center bg-white">
@@ -76,6 +82,7 @@ const JoinRoom = () => {
                     message: 'Room code must follow the format XXXX-1234',
                   },
                 }} 
+                formatter={formatRoomCode}
                              />
       </View>
       {/* Join Button */}

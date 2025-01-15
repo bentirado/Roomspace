@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, Alert, ActivityIndicator } from 'react-native';
-import { Ionicons, AntDesign, FontAwesome5, Octicons } from '@expo/vector-icons'; // Importing icons
+import { AntDesign, FontAwesome5, Octicons } from '@expo/vector-icons'; // Importing icons
 import { signOutUser } from '../db/firestore';
 import { router } from 'expo-router';
 import CustomButton from '../components/CustomButton';

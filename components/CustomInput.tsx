@@ -2,7 +2,7 @@ import { View, Text, TextInput } from 'react-native'
 import React from 'react'
 import { Controller } from 'react-hook-form'
 
-const CustomInput = ({control, placeholder, name, secureTextEntry=false, rules={}, defaultValue=''}) => {
+const CustomInput = ({control, placeholder, name, secureTextEntry=false, rules={}, defaultValue='', formatter}) => {
   return (
     //This file is the component for the react-hook-form. The documentation is a little complicated.
     <Controller
@@ -13,7 +13,8 @@ const CustomInput = ({control, placeholder, name, secureTextEntry=false, rules={
         render={({ field: { value, onChange, onBlur }, fieldState: { error } }) => (
           <>
           <View> 
-            <TextInput value={value} onChangeText={onChange}
+            <TextInput value={value} 
+                onChangeText={(text) => onChange(formatter ? formatter(text) : text)} //This line allows a formating function to be added.
                 onBlur={onBlur} placeholder={placeholder}
                 placeholderTextColor="gray"
                 //This line will change the border to red if there is an error in the authentication.

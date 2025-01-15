@@ -88,17 +88,17 @@ const ProfileSettings = () => {
   return (
     <View className="flex-1 px-4 py-8 pt-5">
       {/* Header */}
-      <View className="flex-row justify-between items-center mb-8 border-b border-gray-200 p-6">
-        {/* Title */}
-        <Text className="text-3xl text-gray-800 font-semibold tracking-tight">Profile Settings</Text>
+        <View className="flex-row justify-between items-center mb-6 border-b border-gray-200 pb-4 pt-4">
+            {/* Back Button and Title */}
+            <View className="flex-row items-center">
+            <Text className="text-2xl text-gray-800 font-semibold tracking-tight">Profile Settings</Text>
+            </View>
 
-        {/* Sign-out button */}
-        <View className="flex-row items-center">
-          <TouchableOpacity className="p-2 rounded-lg" onPress={handleSignOut}>
+            {/* Sign-out Button */}
+            <TouchableOpacity className="p-2 rounded-lg" onPress={handleSignOut}>
             <Octicons name="sign-out" size={24} color="black" />
-          </TouchableOpacity>
+            </TouchableOpacity>
         </View>
-      </View>
 
 
       <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
