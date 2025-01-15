@@ -736,8 +736,8 @@ export const sendPasswordReset = async (email) => {
   try {
     const auth = getAuth();
     await sendPasswordResetEmail(auth, email);
-    alert('Password reset email sent to:', email);
-  }
+    alert('Password reset email sent! Check your inbox for instructions.');
+    }
   catch (error) {
     console.error("Error sending password reset: ", error);
     alert("Failed to send password reset. Please try again.");
