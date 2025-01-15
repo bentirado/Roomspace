@@ -21,6 +21,8 @@ const RootLayout = () => {
           <Stack.Screen name='create-room' options={{ headerShown: false}} />
           <Stack.Screen name='room-settings' options={{ headerShown: false}} />
           <Stack.Screen name='profile-settings' options={{ headerShown: false}} />
+          <Stack.Screen name='profile-settingsNoTab' options={{ headerShown: false}} />
+
       </Stack>
       <StatusBar backgroundColor='#161622' style='dark'/>
     </GlobalProvider>

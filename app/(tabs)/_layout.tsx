@@ -1,4 +1,5 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import { Tabs } from 'expo-router';
 
 export default function TabLayout() {
@@ -24,7 +25,7 @@ export default function TabLayout() {
         name="profile-settings"
         options={{
           title: 'Profile',
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="user" color={color} />,
+          tabBarIcon: ({ color }) => <FontAwesome5 size={24} name="user-alt" color={color} />,
           headerShown: false
         }}
       />

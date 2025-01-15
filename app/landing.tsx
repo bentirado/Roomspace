@@ -55,7 +55,7 @@ const Landing = () => {
           {/* Profile and Sign Out Buttons */}
           <View className="flex-row items-center gap-4">
             <TouchableOpacity className="p-2 rounded-lg"
-            onPress={() => {router.push('/profile-settings')}}
+            onPress={() => {router.push('/profile-settingsNoTab')}}
             >
               <FontAwesome5 name="user" size={24} color="black" />
             </TouchableOpacity>
@@ -116,21 +116,7 @@ const Landing = () => {
       </ScrollView>
 
       {/* Bottom Tabs */}
-      <View className="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-200 py-2 flex-row justify-around">
-        <TouchableOpacity
-          className="flex items-center"
-          onPress={() => {}}
-        >
-          <AntDesign name="home" size={24} color="black" />
-          <Text className="text-sm text-gray-700 mt-1">Home</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          className="flex items-center"
-          onPress={() => {}}
-        >
-          <AntDesign name="bars" size={24} color="black" />
-          <Text className="text-sm text-gray-700 mt-1">Lists</Text>
-        </TouchableOpacity>
+      <View className="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-200 py-8 flex-row justify-around">
       </View>
     </View>
   );
