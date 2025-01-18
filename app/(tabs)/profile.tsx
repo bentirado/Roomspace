@@ -234,7 +234,7 @@ const Profile = () => {
             flexGrow: 1,
           }}
           ListFooterComponent={
-            <View className="flex-row justify-end mb-8 mt-8">
+            <View className="flex-row justify-end mb-8 mt-8 px-4">
               <CustomButton
                 title="Leave Room"
                 handlePress={() => {
