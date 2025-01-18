@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, ScrollView, ActivityIndicator } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import useLocation from "../../hooks/useLocation";
 
 const Location = () => {
     const { latitude, longitude, geocode, errorMsg } = useLocation();
+
+    
+    
 
     // Loading state
     if (!latitude || !longitude) {

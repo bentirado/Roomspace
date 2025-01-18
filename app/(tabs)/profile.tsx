@@ -176,8 +176,8 @@ const Profile = () => {
   }
   else {
     return (
-      <View className="flex-1 px-4 py-8 pt-5">
-        <View className="flex-row justify-between items-center mb-8 border-b border-gray-200 p-6">
+      <View className="flex-1 py-8 pt-5">
+        <View className="flex-row justify-between items-center mb-8 border-b border-gray-200 p-6 bg-white">
           <View className='flex-row'>
             <Text className="text-3xl text-gray-800 font-semibold tracking-tight">{roomName || 'Undefined'}</Text>
             {/* Settings Icon */}
@@ -197,6 +197,7 @@ const Profile = () => {
             </TouchableOpacity>
           </View>
         </View>
+        <View className='px-4 py-3'>
         <TouchableOpacity>
           <View className="bg-gray-900 px-4 py-3 rounded-md shadow-sm mb-6">
             <Text className="text-lg text-white font-semibold">Welcome to {roomName},</Text>
@@ -214,6 +215,7 @@ const Profile = () => {
           >
             <Text className="text-white">{locationTracking ? 'Turn Off' : 'Turn On'}</Text>
           </TouchableOpacity>
+        </View>
         </View>
         <FlatList
           data={members.length > 0 ? members : [{}]} // Use an empty object to render "No members found" or members list

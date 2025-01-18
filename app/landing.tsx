@@ -46,7 +46,7 @@ const Landing = () => {
   }
   else {
   return (
-    <View className="flex-1 bg-white">
+    <View className="flex-1 bg-gray-50">
       {/* Header with Light Background and Border */}
       <View className="bg-white p-6 border-b border-gray-200 pt-10">
         <View className="flex-row justify-between items-center">
@@ -116,7 +116,7 @@ const Landing = () => {
       </ScrollView>
 
       {/* Bottom Tabs */}
-      <View className="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-200 py-8 flex-row justify-around">
+      <View className="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-200 py-10 flex-row justify-around">
       </View>
     </View>
   );
