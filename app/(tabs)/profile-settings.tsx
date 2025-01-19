@@ -88,7 +88,7 @@ const ProfileSettings = () => {
   return (
     <View className="flex-1 px-4 py-8 pt-5">
       {/* Header */}
-        <View className="flex-row justify-between items-center mb-6 border-b border-gray-200 pb-4 pt-4">
+        <View className="flex-row justify-between items-center mb-6 border-b border-gray-200 pb-4 pt-6 mr-2">
             {/* Back Button and Title */}
             <View className="flex-row items-center">
             <Text className="text-2xl text-gray-800 font-semibold tracking-tight">Profile Settings</Text>
