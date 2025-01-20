@@ -36,6 +36,9 @@ yarn-error.*
 #Ignore API key
 firebaseConfig.tsx
 
+#ignore firebase stuff
+GoogleService-Info.plist
+
 # Firebase build and deployment files
 /firebase-debug.log
 /firebase-debug.*.log
