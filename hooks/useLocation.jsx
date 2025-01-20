@@ -19,7 +19,7 @@ const useLocation = () => {
             // Watch for position changes
             const locationSubscription = await Location.watchPositionAsync(
                 {
-                    accuracy: Location.Accuracy.High,
+                    accuracy: Location.Accuracy.Highest,
                     timeInterval: 1000, // update every 10 seconds
                     distanceInterval: .5 // update if the location changes by 10 meters
                 },
