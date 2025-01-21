@@ -39,7 +39,7 @@ const useGeofencing = () => {
       const geofenceRegion = {
         latitude: 35.197592, // Example: Adjust to your needs
         longitude: -97.431456,
-        radius: 10, // 100 meters
+        radius: 10, // 10 meters
       };
 
       console.log("Starting geofencing with the following region:", geofenceRegion);
@@ -93,12 +93,13 @@ const useGeofencing = () => {
     });
 
     // Cleanup task manager on component unmount
+    /*
     return () => {
       console.log("Unregistering geofencing task...");
       TaskManager.unregisterTaskAsync(GEO_FENCE_TASK_NAME).catch((error) =>
         console.error("Error unregistering geofencing task:", error)
       );
-    };
+    };*/
   }, []);
 
   return { geofenceStatus, errorMsg };

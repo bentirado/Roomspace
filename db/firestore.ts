@@ -77,7 +77,8 @@ export const signUp = async (data: { name: string; email: string; password: stri
       name: data.name,
       status: 'Home',
       roomId: '',
-      email: data.email
+      email: data.email,
+      auto_status: false
     });
     console.log('Sign up successful!');
   } catch (error: any) {
@@ -385,6 +386,28 @@ export const setStatus = async (user, newStatus) => {
     console.error('Error updating user status:', error);
     Alert.alert(
       "Error changing status.",
+      "Please try again.",
+      [{ text: "OK", onPress: () => {} }]
+    );
+  }
+};
+
+//Used in the profile to change the auto_status of the current user.
+export const setAutoStatus = async (user) => {
+  try {
+    // Reference to the user's document in the Firestore database
+    const userRef = doc(db, 'users', user.uid); // Assuming user data is stored in a 'users' collection
+    
+    // Update the user's status
+    await updateDoc(userRef, {
+      auto_status: !user.auto_status, // Set the new status
+    });
+
+    console.log(`User auto_status updated to ${user.auto_status}`);
+  } catch (error) {
+    console.error('Error updating user auto_status:', error);
+    Alert.alert(
+      "Error changing auto status.",
       "Please try again.",
       [{ text: "OK", onPress: () => {} }]
     );

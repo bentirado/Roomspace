@@ -24,8 +24,8 @@ export default function TabLayout() {
         <Tabs.Screen
         name="profile-settings"
         options={{
-          title: 'Profile',
-          tabBarIcon: ({ color }) => <FontAwesome5 size={24} name="user" color={color} />,
+          title: 'Auto Status',
+          tabBarIcon: ({ color }) => <FontAwesome5 size={24} name="map" color={color} />,
           headerShown: false
         }}
       />

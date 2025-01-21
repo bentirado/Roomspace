@@ -1,22 +1,24 @@
 import { View, Text, TouchableOpacity, FlatList, Alert, ActivityIndicator } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import AntDesign from '@expo/vector-icons/AntDesign';
-import { fetchRoomData, leaveRoom, setStatus, signOutUser } from '../../db/firestore';
+import { fetchRoomData, leaveRoom, setAutoStatus, setStatus, signOutUser } from '../../db/firestore';
 import { router } from 'expo-router';
 import Octicons from '@expo/vector-icons/Octicons';
 import CustomButton from '../../components/CustomButton';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useGlobalContext } from '../../Context/GlobalProvider';
+import useGeofencing from '../../hooks/useGeofencing';
+import { reload } from 'firebase/auth';
 
 const Profile = () => {
   const { user, reloadUser, isLoading, setIsLoading } = useGlobalContext();
   const [members, setMembers] = useState([]); // State to hold the members data
   const [roomName, setRoomName] = useState('Loading...');
   const [roomCreator, setRoomCreator] = useState('');
-  const [locationTracking, setLocationTracking] = useState(false); // State for location tracking
   const [roomDesc, setRoomDesc] = useState('')
   const [roomCode, setRoomCode] = useState('')
-  
+  const { geofenceStatus, errorMsg: geofencingError } = useGeofencing();
+
 
   const renderMember = ({ item }) => {
     if (user) {
@@ -87,6 +89,23 @@ const Profile = () => {
     fetchData();
   }, [user?.roomId != '']);
 
+  useEffect(() => {
+    if(user?.auto_status) {
+    const smartStatus = async () => {
+      if(geofenceStatus == '1') {
+        await setStatus(user, 'home');
+      }
+      else if (geofenceStatus == '2') {
+        await setStatus(user, 'away');
+      }
+    }
+    smartStatus();
+  }
+  }, [geofenceStatus, user.auto_status])
+
+
+  
+  
   const handleSignOut = async () => {
     Alert.alert(
       "Sign Out",
@@ -163,9 +182,10 @@ const Profile = () => {
   };
 
   const toggleLocationTracking = () => {
-    setLocationTracking((prevState) => !prevState);
-    console.log(locationTracking ? 'Location Tracking Disabled' : 'Location Tracking Enabled');
+    setAutoStatus(user);
+    reloadUser();
   };
+
   if (isLoading) {
     return (
       <View className="flex-1 justify-center items-center bg-white">
@@ -208,12 +228,12 @@ const Profile = () => {
         </TouchableOpacity>
 
         <View className="flex-row justify-between mb-8 pb-5 border-b border-gray-200">
-          <Text className="text-lg text-gray-800">Smart Status</Text>
+          <Text className="text-lg text-gray-800">Auto Status</Text>
           <TouchableOpacity
             className="px-4 py-2 rounded-lg bg-gray-800"
             onPress={toggleLocationTracking}
           >
-            <Text className="text-white">{locationTracking ? 'Turn Off' : 'Turn On'}</Text>
+            <Text className="text-white">{user.auto_status ? 'Turn Off' : 'Turn On'}</Text>
           </TouchableOpacity>
         </View>
         </View>
