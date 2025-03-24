@@ -6,6 +6,7 @@
 - [Features](#-features)
 - [Tech Stack](#-tech-stack)
 - [Video](#-video)
+  [Installation](#-installation)
 
 ## Overview
 RoomSpace is a modern mobile application built with React Native and Expo that allows roomates to better coordinate and organize their day to day lives.
@@ -55,8 +56,28 @@ RoomSpace is a modern mobile application built with React Native and Expo that a
 - Expo CLI (`npm install -g expo-cli`)
 - iOS/Android simulator or physical device
 
-### Setup Instructions
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/roomspace.git
-   cd roomspace
+## 🛠️ Installation
+
+### Prerequisites
+Before you begin, ensure you have met the following requirements:
+- [Node.js](https://nodejs.org/) (v16.x or higher)
+- [Yarn](https://yarnpkg.com/) (recommended) or npm
+- [Expo CLI](https://docs.expo.dev/get-started/installation/) installed globally
+- For iOS development:
+  - Xcode (for simulator)
+  - [CocoaPods](https://cocoapods.org/) (for native modules)
+- For Android development:
+  - Android Studio
+  - Configured Android Virtual Device (AVD)
+
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/yourusername/roomspace.git
+cd roomspace
+```
+### Step 2: Install Dependencies
+```bash
+yarn install
+# or if using npm
+npm install
+```
