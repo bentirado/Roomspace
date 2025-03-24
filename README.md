@@ -47,7 +47,7 @@ RoomSpace is a modern mobile application built with React Native and Expo that a
 ## Video
 | | | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
-| [Video Demo]([https://example.com/screen1.png](https://www.youtube.com/shorts/C926Ntfln3E))
+| [Video Demo] (https://www.youtube.com/shorts/C926Ntfln3E)
 
 ### Prerequisites
 - Node.js v16 or higher
