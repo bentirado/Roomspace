@@ -72,7 +72,7 @@ Before you begin, ensure you have met the following requirements:
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/yourusername/roomspace.git
+git clone https://github.com/bentirado/roomspace.git
 cd roomspace
 ```
 ### Step 2: Install Dependencies
